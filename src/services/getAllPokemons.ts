@@ -1,7 +1,6 @@
-import { Pokemons } from "./interface/apiInterface";
+import { APIResponse } from "./interface/apiInterface";
 
-export const getAllPokemons = async (): Promise<Pokemons> => {
+export const getAllPokemons = async (): Promise<APIResponse> => {
   const response = await fetch("https://pokeapi.co/api/v2/pokemon");
-  const { results } = await response.json();
-  return results;
+  return response.json();
 };
