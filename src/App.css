@@ -1,5 +1,11 @@
 #root {
-  max-width: 1280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  min-height: 100vh;
+  flex-wrap: wrap;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;

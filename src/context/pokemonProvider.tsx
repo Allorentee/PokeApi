@@ -6,8 +6,11 @@ export const PokemonProvider = ({ children }: { children: JSX.Element }) => {
   const initialState: PokeInter[] = [];
   const [pokemons, setPokemons] = useState(initialState);
 
-  const apiCall = async () => {
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon/");
+  //! TRAEMOS LOS DATOS DE LOS POKEMONS.
+  const apiCall = async (num: number) => {
+    const response = await fetch(
+      `https://pokeapi.co/api/v2/pokemon?offset=${num}&limit=20`
+    );
     const data: APIResponse = await response.json();
 
     //! CREAR UN ARRAY DE PROMESAS
@@ -19,14 +22,16 @@ export const PokemonProvider = ({ children }: { children: JSX.Element }) => {
 
     const result = await Promise.all(promises);
     setPokemons(result);
+    return undefined;
   };
 
   useEffect(() => {
-    apiCall();
+    apiCall(0);
   }, []);
 
   const context = {
     pokemons,
+    apiCall,
   };
 
   return (
