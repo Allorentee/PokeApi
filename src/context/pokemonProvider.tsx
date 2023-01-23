@@ -14,10 +14,10 @@ export const PokemonProvider = ({ children }: { children: JSX.Element }) => {
     const data: APIResponse = await response.json();
 
     //! CREAR UN ARRAY DE PROMESAS
-    const promises = data.results.map(async (pokemon) => {
-      const res = await fetch(pokemon.url);
-      const data = await res.json();
-      return data;
+    const promises = data.results.map((pokemon) => {
+      return fetch(pokemon.url)
+        .then((res) => res.json())
+        .then((data) => data);
     });
 
     const result = await Promise.all(promises);
