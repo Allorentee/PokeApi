@@ -1,10 +1,12 @@
 #root {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 90%;
   margin: auto;
   min-height: 100vh;
+  gap: 40px;
   flex-wrap: wrap;
   margin: 0 auto;
   padding: 2rem;

@@ -11,21 +11,23 @@ export const Pagination = () => {
 
   return (
     <>
-      <button
-        disabled={indexNumber <= 0}
-        onClick={() => {
-          setIndexNumber(indexNumber - 20);
-        }}
-      >
-        Previus Page
-      </button>
-      <button
-        onClick={() => {
-          setIndexNumber(indexNumber + 20);
-        }}
-      >
-        Next Page
-      </button>
+      <div className="pagination">
+        <button
+          disabled={indexNumber <= 0}
+          onClick={() => {
+            setIndexNumber(indexNumber - 20);
+          }}
+        >
+          Previus Page
+        </button>
+        <button
+          onClick={() => {
+            setIndexNumber(indexNumber + 20);
+          }}
+        >
+          Next Page
+        </button>
+      </div>
     </>
   );
 };
