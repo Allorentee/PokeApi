@@ -7,7 +7,7 @@ export const PokemonProvider = ({ children }: { children: JSX.Element }) => {
   const [pokemons, setPokemons] = useState(initialState);
 
   //! TRAEMOS LOS DATOS DE LOS POKEMONS.
-  const apiCall = async (num: number) => {
+  const apiCall = async (num: number = 0) => {
     const response = await fetch(
       `https://pokeapi.co/api/v2/pokemon?offset=${num}&limit=20`
     );
@@ -24,11 +24,6 @@ export const PokemonProvider = ({ children }: { children: JSX.Element }) => {
     setPokemons(result);
     return undefined;
   };
-
-  useEffect(() => {
-    apiCall(0);
-  }, []);
-
   const context = {
     pokemons,
     apiCall,
